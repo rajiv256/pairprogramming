@@ -8,6 +8,8 @@ class User(models.Model):
     user_about = models.TextField(max_length=1000)
     user_github_key = models.CharField(max_length=1000)
 
+    def __str__(self):
+        return self.user_name
 
 
 
