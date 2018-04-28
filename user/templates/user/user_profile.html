@@ -1,0 +1,8 @@
+{% extends "user/user_layout.html" %}
+
+{% block body %}
+    {% load static %}
+    <img src="{% static 'user/1147697.png' %}" class="square-image" id="user-gravatar">
+    <label class="single-word-text" id="user-name">{{ user_name }}</label>
+
+{% endblock %}
