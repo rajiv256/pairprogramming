@@ -1,0 +1,15 @@
+{% extends "default.html" %}
+
+{% block body %}
+
+<div class="form" id="signin">
+<form action="{% url 'signmein' %}" method="post">
+    {% csrf_token %}
+    <label class="text-label"> Github User Name :</label>
+    <input type="text" class="text-field" maxlength="50" name="user_name"><br>
+    <label class="text-label"> Password :</label>
+    <input type="password" class="text-field" name="password"><br>
+    <input type="submit" class="submit-button" name="submit" value="SignIn">
+</form>
+</div>
+{% endblock %}
