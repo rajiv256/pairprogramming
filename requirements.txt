@@ -1,3 +1,7 @@
+django-heroku==0.3.1
+gunicorn==19.7.1
+psycopg2==2.7.4
+whitenoise==3.3.1
 PyJWT==1.6.1
 Django==2.0.4
 PyGithub==1.39
@@ -7,3 +11,4 @@ pip==10.0.1
 pytz==2018.4
 setuptools==39.0.1
 wheel==0.31.0
+dj-database-url==0.5.0
