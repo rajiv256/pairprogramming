@@ -1,0 +1,18 @@
+{% extends "user/profile.html" %}
+
+{% block body %}
+
+
+<div class="feed-content" id="feed-content">
+
+    {% for idea in ideas %}
+        <p> {{ idea.idea_title }} by {{ idea.idea_owner }} </p>
+        <p> {{ idea.idea_pub }} </p>
+        <p> {{ idea.idea_content }}</p>
+        <p> {{ idea.idea_interested_users.count }} users are interested , {{ idea.idea_upvotes }} upvotes </p>
+    {% endfor %}
+
+</div>
+<p class="lead"> This is my feed place. All my feed goes here. I know, I am lazy of writing about myself. May be other people might have fun.</p>
+
+{% endblock %}

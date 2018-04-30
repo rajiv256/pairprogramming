@@ -1,0 +1,13 @@
+div#sidebar {
+    position: absolute;
+    top: 120px ;
+    left:80px ;
+    width: 300px;
+    
+}
+
+div#nav-bar {
+    position: relative;
+    top: 100px ;
+    left: 140px ;
+}

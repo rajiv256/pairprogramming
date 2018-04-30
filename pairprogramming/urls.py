@@ -20,8 +20,6 @@ from user.views import signin,signinForm
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('u/', include('user.urls')),
-    path('t/', include('topic.urls')),
-
     path('signin/', signinForm, name='signinForm'),
     path('signmein/', signin, name='signmein')
 

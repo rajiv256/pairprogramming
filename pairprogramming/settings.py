@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user.apps.UserConfig',
     'project.apps.ProjectConfig',
-    'topic.apps.TopicConfig',
 ]
 
 MIDDLEWARE = [
@@ -70,9 +69,6 @@ TEMPLATES = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
-)
 
 WSGI_APPLICATION = 'pairprogramming.wsgi.application'
 
