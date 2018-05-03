@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from user.views import signin,signinForm
+from user.views import signin, signinForm, TopicAutoComplete,autocomplete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('u/', include('user.urls')),
     path('signin/', signinForm, name='signinForm'),
-    path('signmein/', signin, name='signmein')
+    path('signmein/', signin, name='signmein'),
+    path('autocomplete/', autocomplete, name='autocomplete'),
 
 ]

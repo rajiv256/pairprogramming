@@ -2,16 +2,36 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
 from user.models import User, Idea
-from django.http import HttpResponse, HttpResponseRedirect
+from user.models import Topic
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from github import Github
 from user.utils import *
+from dal import autocomplete
+
+
+class TopicAutoComplete(autocomplete.Select2QuerySetView):
+    #TODO : Don't forget to add proper permission checks to the querying user.
+    def get_queryset(self):
+
+        qs = Topic.objects.all()
+        if self.q:
+            qs = qs.filter(topic_title__isstartswith=self.q)
+        return qs[:10]
+
+
+def autocomplete(request):
+    topics = Topic.objects.all()
+    tags = [t.topic_title for t in topics]
+    return JsonResponse(list(set(tags))[:3000], safe=False)
 
 
 def index(request, user_name):
-    ideas = Idea.objects.filter(idea_owner__user_name__contains='rajiv')
+    add_all_topics()
+    topics = Topic.objects.all()
+    print(topics.count())
     context = {
         'user_name': user_name,
-        'ideas'    : ideas,
+        'topics'    : topics,
     }
     return render(request, 'user/profile.html', context)
 
@@ -66,3 +86,4 @@ def followers(request, user_name):
         'user_name': user_name,
     }
     return render(request, 'user/followers.html', context)
+

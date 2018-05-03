@@ -92,7 +92,5 @@ class Idea(models.Model):
 
 class Topic(models.Model):
     topic_title = models.CharField(max_length=100)
-    topic_ideas = models.ForeignKey(Idea, on_delete=models.CASCADE)
-    topic_followers = models.ManyToManyField(User, related_name='interested_topics')
-    topic_description = models.TextField(max_length=500)
-
+    topic_ideas = models.ManyToManyField(Idea, related_name='related_topics', blank=True)
+    topic_followers = models.ManyToManyField(User, related_name='interested_areas', blank=True)

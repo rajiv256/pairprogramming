@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user.apps.UserConfig',
     'project.apps.ProjectConfig',
+    'dal',
+    'dal_select2',
 ]
 
 MIDDLEWARE = [
