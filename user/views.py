@@ -31,7 +31,9 @@ def index(request, user_name):
     print(topics.count())
     context = {
         'user_name': user_name,
-        'topics'    : topics,
+        'topics'   : topics,
+        'followers': 10,
+        'my_name' : request.session['user_name']
     }
     return render(request, 'user/profile.html', context)
 
