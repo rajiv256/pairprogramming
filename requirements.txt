@@ -12,3 +12,6 @@ pytz==2018.4
 setuptools==39.0.1
 wheel==0.31.0
 dj-database-url==0.5.0
+django-autocomplete-light
+pygithub
+

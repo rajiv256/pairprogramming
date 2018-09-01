@@ -3,5 +3,8 @@
 {% block body %}
 
 <p> Show people who follow me.</p>
+{% for person in followers %}
+    <span class="span8"> {{ person }} </span>
+{% endfor %}
 
 {% endblock %}

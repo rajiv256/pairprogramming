@@ -5,9 +5,11 @@ import random
 
 RELATIONSHIP_FOLLOWING      = 1
 RELATIONSHIP_BLOCKED        = 2
+RELATIONSHIP_PENDING        = 3
 RELATIONSHIP_STATUSES = (
     (RELATIONSHIP_FOLLOWING, "Following"),
-    (RELATIONSHIP_BLOCKED, 'Blocked')
+    (RELATIONSHIP_BLOCKED, 'Blocked'),
+    (RELATIONSHIP_PENDING, 'Pending'),
 )
 
 
@@ -40,9 +42,9 @@ class User(models.Model):
         return
 
     def get_relationships(self, status):
-        return self.user_relationships.filter(
+        return self.user_relationships.filter(        ## Lists all the users with whom the 'self' is in a Relationship with
             to_relationships__status=status,
-            to_relationships__from_user=self
+            to_relationships__from_user=self          ## Filter the users whose to_relationships contain 'self' as from_user.
         )
 
     def get_related_to(self, status):
@@ -56,6 +58,11 @@ class User(models.Model):
 
     def get_followers(self):
         return self.get_related_to(RELATIONSHIP_FOLLOWING)
+
+    def get_projects(self):
+        return self.user_projects.all()
+
+
 
 
 class Relationship(models.Model):
@@ -91,6 +98,19 @@ class Idea(models.Model):
 
 
 class Topic(models.Model):
-    topic_title = models.CharField(max_length=100)
-    topic_ideas = models.ManyToManyField(Idea, related_name='related_topics', blank=True)
-    topic_followers = models.ManyToManyField(User, related_name='interested_areas', blank=True)
+    topic_title          = models.CharField(max_length=100)
+    topic_ideas          = models.ManyToManyField(Idea, related_name='related_topics', blank=True)
+    topic_followers      = models.ManyToManyField(User, related_name='interested_areas', blank=True)
+
+
+class Tag(models.Model):
+    tag_title            = models.CharField(max_length=30)
+
+
+class Project(models.Model):
+    project_title        = models.CharField(max_length=30)
+    project_summary      = models.TextField(max_length=500, default='My Awesome project')
+    project_members      = models.ManyToManyField(User, related_name='user_projects')
+
+    def get_members(self):
+        return self.project_members.all()

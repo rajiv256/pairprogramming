@@ -17,12 +17,10 @@
 
 </head>
 
-<div class="container-fluid" id="mast-head">
-
-    <!--img class="small-square-image" src="{% static 'user/images/gravatar.png' %}"-->
-    <div><a href="{% url 'user:profile' user_name %}" class="hyperlink">{{ user_name }}</a></div>
+<div id="page">
+    {% block skeleton %} {% endblock %}
+    {% block body %} {% endblock %}
 </div>
-{% block skeleton %} {% endblock %}
-{% block body %} {% endblock %}
+
 
 </html>

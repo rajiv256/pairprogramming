@@ -1,0 +1,31 @@
+.big-text-box{
+    width:400px ;
+    height:500px ;
+}
+
+#project-list{
+
+}
+
+#project-box {
+
+}
+
+#profile {
+    width: 600px;
+    height: auto ;
+    margin-left : 100px ;
+}
+
+#gravatar {
+    width : 200px ;
+    float : left ;
+    height : 300px ;
+    margin-top : 26px ;
+}
+
+#bio {
+    width: 350px;
+    float: right ;
+    height: 300px;
+}

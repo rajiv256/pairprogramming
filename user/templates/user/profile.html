@@ -3,23 +3,30 @@
 
 {% block skeleton %}
     <div class="container" id="skeleton">
-        <div class="container" id="sidebar">
-            <img src="{% static 'user/images/gravatar.png' %}" class="img-rounded">
-            <h3 class="text-left"> {{ user_name }} </h3>
-            {% if user_name == my_name %}
-                <button class="btn btn-primary" disabled="false">Follow &nbsp {{ followers }}</button>
-            {% else %}
-                <button class="btn btn-primary" disabled="true">Follow &nbsp {{ followers }}</button>
-            {% endif %}
+        <div class="container" id="profile">
+            <div class="container-fluid" id="gravatar">
+                <img src="{% static 'user/images/gravatar.png' %}" class="img-rounded" width="100px" height="100px">
+                <h3 class="text-left"> {{ user_name }} </h3>
+            </div>
 
+            <div class="container-fluid" id="bio">
+                <h2><b> Rajiv Teja Nagipogu</b> </h2>
+                <h5 class="text-left"> {{ user_about }} </h5>
+                 {% if user_name == my_name %}
+                    <!--button class="btn btn-primary" disabled="false">Follow &nbsp {{ no_of_followers }}</button-->
+                {% else %}
+                    <button class="btn btn-primary" disabled="true">Follow &nbsp {{ no_of_followers }}</button>
+                {% endif %}
+            </div>
         </div>
 
-        <div class="container" id="sidebar-topics">
-            <div class="container" id="topics">
-                <!-- Add tags here -->
+
+        <!--div class="container-fluid" id="sidebar-topics">
+            <div class="container-fluid" id="topics">
+
             </div>
             <div class="toggle-on-button-press" id="tag-edit-form" hidden="true">
-                    <div class="container">
+                    <div class="container-fluid">
                         <label for="tag">Add Tag :</label>
                         <input type="text" id="tag-input">
                         <button class="btn btn-primary" value="Add">Add</button>
@@ -28,15 +35,15 @@
                 <button class="btn btn-primary" id="close-tag-edit">Finished Editing</button>
             </div>
             <button class="btn btn-primary active" id="tag-edit" hidden="false">Edit Tags</button>
-        </div>
-        <div class="container" id="nav-bar">
+        </div-->
+        <div class="container-fluid" id="nav-bar">
             <ul class="nav navbar-nav">
-                <li class="nav-item nav-link active"><a href="{% url 'user:feed' user_name %}">Feed</a></li>
+                <!--li class="nav-item nav-link active"><a href="{% url 'user:feed' user_name %}">Feed</a></li-->
                  {% if user_name == my_name %}
-                    <li class="nav-item nav-link"><a href="{% url 'user:timeline' user_name %}">Timeline</a></li>
+                    <!--li class="nav-item nav-link"><a href="{% url 'user:timeline' user_name %}">Timeline</a></li-->
                  {% endif %}
                 <li class="nav-item nav-link"><a href="{% url 'user:projects' user_name %}">Projects</a></li>
-                <li class="nav-item nav-link"><a href="{% url 'user:mystory' user_name %}">My Story</a></li>
+                <!--li class="nav-item nav-link"><a href="{% url 'user:mystory' user_name %}">My Story</a></li-->
                 <li class="nav-item nav-link"><a href="{% url 'user:following' user_name %}">Following</a></li>
                 <li class="nav-item nav-link"><a href="{% url 'user:followers' user_name %}">Followers</a></li>
             </ul>

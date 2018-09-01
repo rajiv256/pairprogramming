@@ -42,3 +42,26 @@ l = ['aacdef', 'abbcddn','absdjjdk', 'abskjfej','abfkjeifi']
 l.sort()
 st, en = range(l, 'ab')
 print(st,en)
+
+
+from github import Github
+
+g = Github("rajiv256", "143momdadsis")
+
+for repo in g.get_user().get_repos():
+    print(repo.description)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

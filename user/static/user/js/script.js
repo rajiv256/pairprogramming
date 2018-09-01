@@ -46,4 +46,13 @@ $(document).ready(function(){
     $("#tag-input").autocomplete({
         source: all_tags
     });
+
+    $("#project-edit").click(function(){
+        $(this).hide() ;
+        $("#project-edit-form").show() ;
+    });
+    $("#close-project-edit").click(function(){
+        $("#project-edit-form").hide() ;
+        $("#project-edit").show() ;
+    });
 });

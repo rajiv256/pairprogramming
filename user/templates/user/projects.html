@@ -9,6 +9,26 @@
         <a href="{% url 'user:mystory' user_name %}">My Story</a>
 </div-->
 
-<p> This is my projects place.</p>
+<div class="toggle-on-button-press" id="project-edit-form" hidden="true">
+    <form action="/u/rajiv/projects/" method="post">
+        {% csrf_token %}
+        <label class="text-label"> Project Title :</label><input id="project-name" name="Project Name"><br>
+        <label class="text-label"> Summary :</label><input id="project-summary" class="big-text-box"><br>
+        <input type="submit" class="btn btn-primary" name="submit"><br>
+    </form>
+</div>
+<button class="btn btn-primary active" id="project-edit" hidden="false">Edit Projects</button>
+
+<div class="container-fluid" id="project-list">
+    {% for project in user.user_projects %}
+        <div class="container-fluid" id="project-box">
+            <h3>{{ project.project_title }}</h3><br>
+            {% for member in project.project_members %}
+                <h5>{{ member.user_name }}</h5>&nbsp
+            {% endfor %}<br>
+            <p>{{ project.project_summary }}</p>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
