@@ -5,7 +5,7 @@ whitenoise==3.3.1
 PyJWT==2.4.0
 Django==2.0.4
 PyGithub==1.39
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 pip==21.1
 pytz==2018.4
